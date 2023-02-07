@@ -3,12 +3,26 @@
     <head>
         <center>
         <title>LOGIN FORM</title>
+        <meta  name="author" content="Nephi Bungubung">
+        <script>
+            function validateEmail(email)
+             {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            }
+    
+            function validatePassword(password)
+            {
+                var re = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+                return re.test(password);
+            }
+        </script>
+
         <style>
             body {
                 font-family: fantasy;
-                background-color: rgb(94, 94, 198);
                 border-color: black;
-                background-image: linear-gradient(to right, rgb(0, 200, 255) , rgb(0, 68, 255));
+                background-image: linear-gradient(to right, rgb(255, 255, 255) , rgb(30, 96, 229));
             }
 
             .container {
@@ -31,13 +45,12 @@
     </head>
     <body>
         <div class="container">
-            <h1>Login Form</h1>
-            <form id="loginForm" action="/login" method="POST">
-                <label>Username:</label>
-                <input type="text" name="USERNAME" />
-                <label>Password:</label>
-                <input type="password" name="PASSWORD" />
-                <input type="submit" value="LOGIN" />  
+            <h1>LOGIN FORM</h1>
+            <form>
+                <input id ="email" type="text" placeholder="Username" required>
+                <input id ="password" type="password" placeholder="Password" required>
+                <br>
+                <button class="button-28" type="submit" role="button" onclick="return validatePassword(password.value)" onclick="return validateEmail(email.value)">Log In</button>
             </form>
         </div>
     </body>
